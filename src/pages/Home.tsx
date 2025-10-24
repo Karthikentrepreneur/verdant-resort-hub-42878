@@ -6,7 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useState } from "react";
 
 // Assets
-
+import heroPoster from "@/assets/hero-video-bg.jpg";
 
 const Home = () => {
   const [isMuted, setIsMuted] = useState(true);
