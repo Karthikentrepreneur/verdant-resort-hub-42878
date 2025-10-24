@@ -23,8 +23,7 @@ const Home = () => {
         <video className="md:hidden absolute inset-0 w-full h-full object-cover" src="/mobilehero.mp4" autoPlay muted loop playsInline poster="/hero-video-bg.jpg" />
 
         {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+       
 
         {/* Bottom-right title content */}
         <div className="absolute right-4 bottom-20 md:right-8 md:bottom-24 z-20 max-w-xl">
@@ -45,9 +44,7 @@ const Home = () => {
         </div>
 
         {/* Scroll cue */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-1 h-12 rounded-full overflow-hidden bg-white/20">
-          <span className="block w-1 h-3 bg-white/90 animate-bounce" />
-        </div>
+        
       </section>
 
       {/* ========================= About Us ========================= */}
