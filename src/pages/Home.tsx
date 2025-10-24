@@ -18,7 +18,7 @@ const Home = () => {
       {/* ========================= Hero (separate mobile & desktop video) ========================= */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Desktop video */}
-        <video className="hidden md:block absolute inset-0 w-full h-full object-cover" src="/webhero.mp4" autoPlay muted loop playsInline poster="/hero-video-bg.jpg" />
+        <video className="hidden md:block absolute inset-0 w-full h-full object-cover" src="/home.mp4" autoPlay muted loop playsInline poster="/hero-video-bg.jpg" />
         {/* Mobile video */}
         <video className="md:hidden absolute inset-0 w-full h-full object-cover" src="/mobilehero.mp4" autoPlay muted loop playsInline poster="/hero-video-bg.jpg" />
 
