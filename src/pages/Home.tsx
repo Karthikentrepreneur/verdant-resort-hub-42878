@@ -6,13 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useState } from "react";
 
 // Assets
-import heroPoster from "@/assets/hero-video-bg.jpg"; // fallback poster
-import mobileHero from "@/assets/mobilehero.mp4";
-import webHero from "@/assets/webhero.mp4";
-import fruitsImage from "@/assets/fruits.jpg";
-import farmImage from "@/assets/organic-farm.jpg";
-import poolImage from "@/assets/swimming-pool.jpg";
-import instituteImage from "@/assets/institute.jpg";
+
 
 const Home = () => {
   const [isMuted, setIsMuted] = useState(true);
@@ -24,7 +18,7 @@ const Home = () => {
         {/* Desktop video */}
         <video
           className="hidden md:block absolute inset-0 w-full h-full object-cover"
-          src={webHero}
+          src="/mobilehero.mp4"
           autoPlay
           muted={isMuted}
           loop
@@ -34,7 +28,7 @@ const Home = () => {
         {/* Mobile video */}
         <video
           className="md:hidden absolute inset-0 w-full h-full object-cover"
-          src={mobileHero}
+          src="/webhero.mp4"
           autoPlay
           muted={isMuted}
           loop
@@ -97,7 +91,7 @@ const Home = () => {
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <div className="relative aspect-[4/3] md:aspect-[5/4] rounded-2xl overflow-hidden shadow-xl">
             <img
-              src={farmImage}
+              src="/favicon.ico"
               alt="Manvaasam Organic Farm"
               className="w-full h-full object-cover"
             />
@@ -209,7 +203,7 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={fruitsImage} alt="Seasonal Fruit Basket" className="w-full h-full object-cover" />
+                  <img src="/favicon.ico" alt="Seasonal Fruit Basket" className="w-full h-full object-cover" />
                   <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">New</span>
                 </div>
                 <div className="p-6">
@@ -229,7 +223,7 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={farmImage} alt="Organic Veggie Pack" className="w-full h-full object-cover" />
+                  <img src="/favicon.ico" alt="Organic Veggie Pack" className="w-full h-full object-cover" />
                   <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Best Seller</span>
                 </div>
                 <div className="p-6">
@@ -249,7 +243,7 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={poolImage} alt="Resort Day Pass" className="w-full h-full object-cover" />
+                  <img src="/favicon.ico"alt="Resort Day Pass" className="w-full h-full object-cover" />
                   <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Limited</span>
                 </div>
                 <div className="p-6">
