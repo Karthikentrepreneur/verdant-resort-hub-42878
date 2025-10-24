@@ -4,9 +4,12 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Clock, Users, CheckCircle2, Gift } from "lucide-react";
 import { toast } from "sonner";
-import fruitsImage from "@/assets/fruits.jpg";
-import farmImage from "@/assets/organic-farm.jpg";
-import poolImage from "@/assets/swimming-pool.jpg";
+import incubatorImage from "@/assets/incubator.png";
+import resortImage from "@/assets/resort.webp";
+import resort2Image from "@/assets/resort2.webp";
+import fruitImage from "@/assets/fruit.webp";
+import fruit2Image from "@/assets/fruit2.webp";
+import fruit3Image from "@/assets/fruit3.webp";
 
 const Products = () => {
   const navigate = useNavigate();
@@ -18,7 +21,7 @@ const Products = () => {
       name: "Manvaasam Incubator",
       description: "Complete egg incubation solution with online guidance and support",
       price: "₹2,999.00",
-      image: fruitsImage,
+      image: incubatorImage,
       features: ["Hatching Period: 21 days", "80+ eggs capacity", "Online guidance", "1 Year replacement"],
       badge: "Popular"
     },
@@ -28,7 +31,7 @@ const Products = () => {
       description: "Experience farm life with resort amenities - perfect for a day getaway",
       price: "₹499.00",
       originalPrice: "₹999.00",
-      image: poolImage,
+      image: resortImage,
       features: ["₹499/person", "Farm experience", "Resort amenities", "50% discount"],
       badge: "Best Offer"
     },
@@ -37,7 +40,7 @@ const Products = () => {
       name: "Organic Fruit Basket",
       description: "Handpicked selection of 10+ seasonal organic fruits from our farm",
       price: "₹1,299.00",
-      image: fruitsImage,
+      image: fruitImage,
       features: ["Fresh Daily Harvest", "Chemical-Free", "Home Delivery", "150+ varieties"],
       badge: "Fresh"
     },

@@ -11,6 +11,9 @@ import fruitsImage from "@/assets/fruits.jpg";
 import farmImage from "@/assets/organic-farm.jpg";
 import poolImage from "@/assets/swimming-pool.jpg";
 import instituteImage from "@/assets/institute.jpg";
+import incubatorImage from "@/assets/incubator.png";
+import resortImage from "@/assets/resort.webp";
+import fruitImage from "@/assets/fruit.webp";
 const Home = () => {
   const [isMuted, setIsMuted] = useState(true);
   return <div className="min-h-screen">
@@ -44,7 +47,11 @@ const Home = () => {
 
         {/* Bottom-left CTA in green gradient box */}
         <div className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-20">
-          
+          <Link to="/products">
+            <Button size="lg" className="text-lg px-10 shadow-lg hover:scale-105 transition-transform">
+              Book Resort Stay
+            </Button>
+          </Link>
         </div>
 
         {/* Scroll cue */}
@@ -166,14 +173,14 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={fruitsImage} alt="Seasonal Fruit Basket" className="w-full h-full object-cover" />
-                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">New</span>
+                  <img src={fruitImage} alt="Organic Fruit Basket" className="w-full h-full object-cover" />
+                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Fresh</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold">Seasonal Fruit Basket</h3>
-                  <p className="mt-2 text-muted-foreground">A curated selection of our freshest organic fruits. Perfect for families and gifting.</p>
+                  <h3 className="text-xl font-semibold">Organic Fruit Basket</h3>
+                  <p className="mt-2 text-muted-foreground">Handpicked selection of 10+ seasonal organic fruits from our farm</p>
                   <div className="mt-4 flex items-center justify-between">
-                    <span className="font-bold">₹699</span>
+                    <span className="font-bold">₹1,299</span>
                     <Link to="/products">
                       <Button size="sm">View</Button>
                     </Link>
@@ -186,12 +193,12 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={poolImage} alt="Manvaasam Resort" className="w-full h-full object-cover" />
-                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">50% Off</span>
+                  <img src={resortImage} alt="Manvaasam Resort" className="w-full h-full object-cover" />
+                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Best Offer</span>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold">Manvaasam Resort - Farm House</h3>
-                  <p className="mt-2 text-muted-foreground">Experience sustainable living at our farm resort.</p>
+                  <p className="mt-2 text-muted-foreground">Experience farm life with resort amenities - perfect for a day getaway</p>
                   <div className="mt-4 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="font-bold">₹499</span>
@@ -209,12 +216,12 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={farmImage} alt="Manvaasam Incubator" className="w-full h-full object-cover" />
-                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Best Seller</span>
+                  <img src={incubatorImage} alt="Manvaasam Incubator" className="w-full h-full object-cover" />
+                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Popular</span>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold">Manvaasam Incubator</h3>
-                  <p className="mt-2 text-muted-foreground">80+ eggs capacity with online guidance and 1-year replacement.</p>
+                  <p className="mt-2 text-muted-foreground">Complete egg incubation solution with online guidance and support</p>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="font-bold">₹2,999</span>
                     <Link to="/products">
