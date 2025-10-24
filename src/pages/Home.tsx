@@ -44,23 +44,22 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-        {/* Headline content (center) */}
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold mb-4 md:mb-6 drop-shadow-2xl">
+        {/* Bottom-right title content */}
+        <div className="absolute right-4 bottom-20 md:right-8 md:bottom-24 z-20 max-w-xl">
+          <div className="backdrop-blur-sm bg-black/40 text-white rounded-xl shadow-xl px-4 py-4 sm:px-6 sm:py-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 drop-shadow-2xl">
               Seeds of Hope
             </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl mb-3 md:mb-4 max-w-3xl mx-auto font-light text-white/95">
+            <p className="text-base sm:text-lg md:text-xl mb-2 font-light text-white/95">
               Experience Sustainable Living at Our Organic Farm Resort
             </p>
-            <p className="text-base sm:text-lg md:text-xl mb-0 max-w-2xl mx-auto text-white/90">
+            <p className="text-sm sm:text-base text-white/90">
               Fresh, Organic, and Delivered to Your Doorstep
             </p>
-
             {/* Sound toggle */}
             <button
               onClick={() => setIsMuted((m) => !m)}
-              className="mt-6 inline-flex items-center gap-2 text-sm/none py-2 px-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/30"
+              className="mt-3 inline-flex items-center gap-2 text-sm/none py-2 px-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/30"
             >
               <Play className="w-4 h-4" /> {isMuted ? "Sound Off" : "Sound On"}
             </button>
@@ -223,14 +222,17 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={farmImage} alt="Organic Veggie Pack" className="w-full h-full object-cover" />
-                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Best Seller</span>
+                  <img src={poolImage} alt="Manvaasam Resort" className="w-full h-full object-cover" />
+                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">50% Off</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold">Organic Veggie Pack</h3>
-                  <p className="mt-2 text-muted-foreground">Daily essentials straight from the farm—crisp, clean, and chemical-free.</p>
+                  <h3 className="text-xl font-semibold">Manvaasam Resort - Farm House</h3>
+                  <p className="mt-2 text-muted-foreground">Experience sustainable living at our farm resort.</p>
                   <div className="mt-4 flex items-center justify-between">
-                    <span className="font-bold">₹499</span>
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold">₹499</span>
+                      <span className="text-sm text-muted-foreground line-through">₹999</span>
+                    </div>
                     <Link to="/products">
                       <Button size="sm">View</Button>
                     </Link>
@@ -243,14 +245,14 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src={poolImage} alt="Resort Day Pass" className="w-full h-full object-cover" />
-                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Limited</span>
+                  <img src={farmImage} alt="Manvaasam Incubator" className="w-full h-full object-cover" />
+                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Best Seller</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold">Green Resort Day Pass</h3>
-                  <p className="mt-2 text-muted-foreground">Enjoy the pool, gardens, and nature trails with a wholesome organic lunch.</p>
+                  <h3 className="text-xl font-semibold">Manvaasam Incubator</h3>
+                  <p className="mt-2 text-muted-foreground">80+ eggs capacity with online guidance and 1-year replacement.</p>
                   <div className="mt-4 flex items-center justify-between">
-                    <span className="font-bold">₹1,199</span>
+                    <span className="font-bold">₹2,999</span>
                     <Link to="/products">
                       <Button size="sm">View</Button>
                     </Link>

@@ -15,7 +15,7 @@ const Preloader = () => {
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-accent/10 animate-fade-out">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white animate-fade-out">
       <div className="text-center animate-scale-in">
         <div className="relative">
           <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse"></div>

@@ -16,35 +16,27 @@ const Footer = () => {
             </p>
             <div className="flex gap-3 pt-2">
               <a
-                href="#"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
+                href="https://www.youtube.com/@manvaasamteam"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/manvaasam_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/manvaasam-team-4372a7253/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                 aria-label="LinkedIn"
               >
@@ -123,21 +115,20 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 flex-shrink-0 mt-1 text-primary" />
-                <div className="text-sm">
-                  <p className="text-muted-foreground">+91 1234567890</p>
-                  <p className="text-muted-foreground">+91 0987654321</p>
-                </div>
+                <a href="tel:+916380091001" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  +91 6380091001
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 flex-shrink-0 mt-1 text-primary" />
-                <a href="mailto:info@manvaasam.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  contact@manvaasam.com
+                <a href="mailto:training@manvaasam.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  training@manvaasam.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 flex-shrink-0 mt-1 text-primary" />
                 <span className="text-sm text-muted-foreground">
-                  Organic Farm, Green Valley, India
+                  Kothur, Thirupattur Taluk<br />Tamil Nadu, 635854
                 </span>
               </li>
             </ul>

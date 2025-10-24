@@ -15,30 +15,31 @@ const Products = () => {
   const products = [
     {
       id: 1,
-      name: "Organic Fruit Basket",
-      description: "Handpicked selection of 10+ seasonal organic fruits from our farm",
-      price: "₹1,299",
+      name: "Manvaasam Incubator",
+      description: "Complete egg incubation solution with online guidance and support",
+      price: "₹2,999.00",
       image: fruitsImage,
-      features: ["Fresh Daily Harvest", "Chemical-Free", "Home Delivery"],
+      features: ["Hatching Period: 21 days", "80+ eggs capacity", "Online guidance", "1 Year replacement"],
       badge: "Popular"
     },
     {
       id: 2,
-      name: "Farm Stay Package",
-      description: "2-day experience at our organic farm with meals and activities",
-      price: "₹3,999",
-      image: farmImage,
-      features: ["2 Days 1 Night", "Farm Tour", "Organic Meals"],
-      badge: "Best Value"
+      name: "Manvaasam Resort - Farm House",
+      description: "Experience farm life with resort amenities - perfect for a day getaway",
+      price: "₹499.00",
+      originalPrice: "₹999.00",
+      image: poolImage,
+      features: ["₹499/person", "Farm experience", "Resort amenities", "50% discount"],
+      badge: "Best Offer"
     },
     {
       id: 3,
-      name: "Resort Day Pass",
-      description: "Full day access to resort amenities including pool and gardens",
-      price: "₹899",
-      image: poolImage,
-      features: ["Swimming Pool", "Gardens", "Refreshments"],
-      badge: "Limited Slots"
+      name: "Organic Fruit Basket",
+      description: "Handpicked selection of 10+ seasonal organic fruits from our farm",
+      price: "₹1,299.00",
+      image: fruitsImage,
+      features: ["Fresh Daily Harvest", "Chemical-Free", "Home Delivery", "150+ varieties"],
+      badge: "Fresh"
     },
   ];
 
@@ -109,7 +110,12 @@ const Products = () => {
                       </div>
                     ))}
                   </div>
-                  <p className="text-3xl font-bold text-primary">{product.price}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-3xl font-bold text-primary">{product.price}</p>
+                    {product.originalPrice && (
+                      <p className="text-lg text-muted-foreground line-through">{product.originalPrice}</p>
+                    )}
+                  </div>
                 </CardContent>
                 <CardFooter>
                   <Button
