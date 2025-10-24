@@ -1,175 +1,292 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Leaf, Droplets, TreeDeciduous, Award, Users, Clock, Star, MapPin, Search, Truck, Package, Clock3, ShieldCheck, Play } from "lucide-react";
+import { Leaf, TreeDeciduous, Users, Star, Play, GraduationCap, Laptop, Sprout } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useState } from "react";
-import heroVideoBg from "@/assets/hero-video-bg.jpg";
+
+// Assets
+import heroPoster from "@/assets/hero-video-bg.jpg"; // fallback poster
+import mobileHero from "@/assets/mobilehero.mp4";
+import webHero from "@/assets/webhero.mp4";
 import fruitsImage from "@/assets/fruits.jpg";
 import farmImage from "@/assets/organic-farm.jpg";
 import poolImage from "@/assets/swimming-pool.jpg";
 import instituteImage from "@/assets/institute.jpg";
-const Home = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  return <div className="min-h-screen">
-      {/* Hero Section with Video Background */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/20 to-accent/30" />
-        <div className="absolute inset-0 bg-cover bg-center transform scale-105 animate-pulse" style={{
-        backgroundImage: `url(${heroVideoBg})`,
-        filter: "brightness(0.6)",
-        animationDuration: "8s"
-      }} />
-        
-        {/* Animated Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
-        
-        {/* Video Play Button */}
-        <button onClick={() => setIsPlaying(!isPlaying)} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 group" aria-label="Play video">
-          <div className="relative">
-            <div className="absolute inset-0 bg-white/20 rounded-full blur-2xl group-hover:blur-3xl transition-all animate-pulse"></div>
-            
-          </div>
-        </button>
 
+const Home = () => {
+  const [isMuted, setIsMuted] = useState(true);
+
+  return (
+    <div className="min-h-screen">
+      {/* ========================= Hero (separate mobile & desktop video) ========================= */}
+      <section className="relative h-[90svh] md:h-screen flex items-center justify-center overflow-hidden bg-black">
+        {/* Desktop video */}
+        <video
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
+          src={webHero}
+          autoPlay
+          muted={isMuted}
+          loop
+          playsInline
+          poster={heroPoster}
+        />
+        {/* Mobile video */}
+        <video
+          className="md:hidden absolute inset-0 w-full h-full object-cover"
+          src={mobileHero}
+          autoPlay
+          muted={isMuted}
+          loop
+          playsInline
+          poster={heroPoster}
+        />
+
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+        {/* Content */}
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in drop-shadow-2xl">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold mb-4 md:mb-6 drop-shadow-2xl">
               Seeds of Hope
             </h1>
-            <p className="text-2xl md:text-3xl mb-4 max-w-3xl mx-auto animate-fade-in font-light" style={{
-            animationDelay: "0.2s"
-          }}>
+            <p className="text-xl sm:text-2xl md:text-3xl mb-3 md:mb-4 max-w-3xl mx-auto font-light text-white/95">
               Experience Sustainable Living at Our Organic Farm Resort
             </p>
-            <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto animate-fade-in text-white/90" style={{
-            animationDelay: "0.3s"
-          }}>
+            <p className="text-base sm:text-lg md:text-xl mb-8 md:mb-10 max-w-2xl mx-auto text-white/90">
               Fresh, Organic, and Delivered to Your Doorstep
             </p>
-            
-            {/* Enhanced Search Bar */}
-            
 
-            <div className="flex flex-wrap gap-5 justify-center animate-fade-in" style={{
-            animationDelay: "0.6s"
-          }}>
+            <div className="flex flex-wrap gap-4 sm:gap-5 justify-center">
               <Link to="/products">
-                <Button size="lg" className="rounded-full px-10 py-6 text-lg shadow-2xl hover:shadow-glow transition-all">
+                <Button size="lg" className="rounded-full px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg shadow-2xl hover:shadow-lg transition-all">
                   Explore Products
                 </Button>
               </Link>
               <Link to="/services">
-                <Button size="lg" variant="outline" className="rounded-full px-10 py-6 text-lg bg-white/10 hover:bg-white/20 text-white border-2 border-white backdrop-blur-sm shadow-2xl">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg bg-white/10 hover:bg-white/20 text-white border-2 border-white backdrop-blur-sm shadow-2xl"
+                >
                   Book Resort Stay
                 </Button>
               </Link>
             </div>
+
+            {/* Sound toggle (optional) */}
+            <button
+              onClick={() => setIsMuted(m => !m)}
+              className="mt-6 inline-flex items-center gap-2 text-sm/none py-2 px-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/30"
+            >
+              <Play className="w-4 h-4" /> {isMuted ? "Sound Off" : "Sound On"}
+            </button>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          
+        {/* Scroll cue */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-1 h-12 rounded-full overflow-hidden bg-white/20">
+          <span className="block w-1 h-3 bg-white/90 animate-bounce" />
         </div>
       </section>
 
-      {/* How It Works Section */}
-      
+      {/* ========================= About Us ========================= */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+          <div className="relative aspect-[4/3] md:aspect-[5/4] rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src={farmImage}
+              alt="Manvaasam Organic Farm"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-white/90 text-foreground px-3 py-1 rounded-full text-sm shadow">
+              <Sprout className="w-4 h-4" /> Organic • Sustainable • 4 Acres
+            </div>
+          </div>
 
-      {/* Popular Categories Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Our Services</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore our range of organic products and experiences
+          <div>
+            <span className="inline-flex items-center rounded-full bg-secondary/10 px-3 py-1 text-sm text-secondary mb-4">About Us</span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
+              Our Story
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Manvaasam was born from a vision to create a sustainable ecosystem where nature and modern living coexist harmoniously. Our 4-acre organic farm is a testament to our commitment to environmental stewardship.
             </p>
-          </div>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              We cultivate over <b>150 varieties of fruits</b> using traditional organic methods, ensuring that every harvest is not just bountiful, but also healthy and environmentally responsible.
+            </p>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Our green resort offers visitors a chance to reconnect with nature while enjoying modern amenities, all powered by sustainable practices.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[{
-            title: "Organic Fruits & Vegetables",
-            count: "150+ Varieties",
-            image: fruitsImage,
-            color: "bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950/20 dark:to-emerald-900/20"
-          }, {
-            title: "Green Resorts",
-            count: "Eco-Friendly Stays",
-            image: poolImage,
-            color: "bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-950/20 dark:to-teal-900/20"
-          }, {
-            title: "4 Acre Organic Farm",
-            count: "Farm Tours & Stays",
-            image: farmImage,
-            color: "bg-gradient-to-br from-yellow-50 to-lime-100 dark:from-yellow-950/20 dark:to-lime-900/20"
-          }, {
-            title: "Swimming Pool",
-            count: "Resort Amenities",
-            image: poolImage,
-            color: "bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-blue-950/20 dark:to-cyan-900/20"
-          }, {
-            title: "Institute & Training",
-            count: "AgriTech Programs",
-            image: instituteImage,
-            color: "bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-950/20 dark:to-pink-900/20"
-          }, {
-            title: "Farm Products",
-            count: "Fresh Daily",
-            image: fruitsImage,
-            color: "bg-gradient-to-br from-red-50 to-rose-100 dark:from-red-950/20 dark:to-rose-900/20"
-          }, {
-            title: "Wellness Programs",
-            count: "Health & Nature",
-            image: poolImage,
-            color: "bg-gradient-to-br from-teal-50 to-green-100 dark:from-teal-950/20 dark:to-green-900/20"
-          }, {
-            title: "Events & Workshops",
-            count: "Book Your Spot",
-            image: farmImage,
-            color: "bg-gradient-to-br from-indigo-50 to-blue-100 dark:from-indigo-950/20 dark:to-blue-900/20"
-          }].map((category, index) => <Link key={index} to="/products" className="group">
-                <Card className={`overflow-hidden hover:shadow-primary transition-all duration-300 hover:scale-105 animate-fade-in cursor-pointer ${category.color} border-none h-full`} style={{
-              animationDelay: `${index * 50}ms`
-            }}>
-                  <CardContent className="p-6">
-                    <div className="relative h-32 mb-4 rounded-xl overflow-hidden">
-                      <img src={category.image} alt={category.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">
-                      {category.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{category.count}</p>
-                  </CardContent>
-                </Card>
-              </Link>)}
+            <div className="mt-6 grid sm:grid-cols-3 gap-4">
+              <div className="rounded-xl border bg-card p-4">
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">Manvaasam Agri</p>
+                <p className="mt-1 font-semibold">Work from Farm • Resort • Gardening • Organic Fruits & Vegetables • Swimming Pool</p>
+              </div>
+              <div className="rounded-xl border bg-card p-4">
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">Manvaasam Institute</p>
+                <p className="mt-1 font-semibold">Technical Trainings • Placements • LMS • Online Courses</p>
+              </div>
+              <div className="rounded-xl border bg-card p-4">
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">Manvaasam Tech</p>
+                <p className="mt-1 font-semibold">Web & Mobile Development • Digital Marketing • Posters & Video</p>
+              </div>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/about">
+                <Button className="px-6">Learn More</Button>
+              </Link>
+              <Link to="/products">
+                <Button variant="outline" className="px-6">Shop Now</Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-primary text-white">
+      {/* ========================= Services ========================= */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 text-foreground">Our Services</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Explore how Manvaasam supports nature-first living across agriculture, learning, and technology.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* 01 Manvaasam Agri */}
+            <Card className="group overflow-hidden border-none bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950/30 dark:to-emerald-900/30">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-5xl font-black/ tracking-tight text-emerald-500/90">01</span>
+                  <Leaf className="w-10 h-10 opacity-80" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">MANVAASAM AGRI</h3>
+                <p className="mt-2 text-muted-foreground">Work from Farm • Resort • Gardening • Organic fruits & Vegetables • Swimming Pool</p>
+              </CardContent>
+            </Card>
+
+            {/* 02 Manvaasam Institute */}
+            <Card className="group overflow-hidden border-none bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-950/30 dark:to-pink-900/30">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-5xl font-black/ tracking-tight text-purple-500/90">02</span>
+                  <GraduationCap className="w-10 h-10 opacity-80" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">MANVAASAM INSTITUTE</h3>
+                <p className="mt-2 text-muted-foreground">Technical Trainings • Placements • LMS • Online Courses</p>
+              </CardContent>
+            </Card>
+
+            {/* 03 Manvaasam Tech */}
+            <Card className="group overflow-hidden border-none bg-gradient-to-br from-indigo-50 to-blue-100 dark:from-indigo-950/30 dark:to-blue-900/30">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-5xl font-black/ tracking-tight text-indigo-500/90">03</span>
+                  <Laptop className="w-10 h-10 opacity-80" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">MANVAASAM TECH</h3>
+                <p className="mt-2 text-muted-foreground">Website & Mobile App Development • Digital Marketing • Posters & Video</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================= Products (3 dummy items) ========================= */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 text-foreground">Featured Products</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Handpicked organic goodness, harvested with care from our farm.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Product 1 */}
+            <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
+              <CardContent className="p-0">
+                <div className="relative h-56 overflow-hidden">
+                  <img src={fruitsImage} alt="Seasonal Fruit Basket" className="w-full h-full object-cover" />
+                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">New</span>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold">Seasonal Fruit Basket</h3>
+                  <p className="mt-2 text-muted-foreground">A curated selection of our freshest organic fruits. Perfect for families and gifting.</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="font-bold">₹699</span>
+                    <Link to="/products">
+                      <Button size="sm">View</Button>
+                    </Link>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Product 2 */}
+            <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
+              <CardContent className="p-0">
+                <div className="relative h-56 overflow-hidden">
+                  <img src={farmImage} alt="Organic Veggie Pack" className="w-full h-full object-cover" />
+                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Best Seller</span>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold">Organic Veggie Pack</h3>
+                  <p className="mt-2 text-muted-foreground">Daily essentials straight from the farm—crisp, clean, and chemical-free.</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="font-bold">₹499</span>
+                    <Link to="/products">
+                      <Button size="sm">View</Button>
+                    </Link>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Product 3 */}
+            <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
+              <CardContent className="p-0">
+                <div className="relative h-56 overflow-hidden">
+                  <img src={poolImage} alt="Resort Day Pass" className="w-full h-full object-cover" />
+                  <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Limited</span>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold">Green Resort Day Pass</h3>
+                  <p className="mt-2 text-muted-foreground">Enjoy the pool, gardens, and nature trails with a wholesome organic lunch.</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="font-bold">₹1,199</span>
+                    <Link to="/products">
+                      <Button size="sm">View</Button>
+                    </Link>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================= Stats ========================= */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-emerald-600 to-teal-600 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="animate-fade-in">
+            <div>
               <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-full mb-4">
                 <TreeDeciduous className="h-8 w-8" />
               </div>
               <h3 className="text-4xl md:text-5xl font-bold mb-2">4</h3>
               <p className="text-lg opacity-90">Acres of Organic Farm</p>
             </div>
-            <div className="animate-fade-in" style={{
-            animationDelay: "100ms"
-          }}>
+            <div>
               <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-full mb-4">
                 <Leaf className="h-8 w-8" />
               </div>
               <h3 className="text-4xl md:text-5xl font-bold mb-2">150+</h3>
               <p className="text-lg opacity-90">Varieties of Fruits</p>
             </div>
-            <div className="animate-fade-in" style={{
-            animationDelay: "200ms"
-          }}>
+            <div>
               <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-full mb-4">
                 <Users className="h-8 w-8" />
               </div>
@@ -180,62 +297,63 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-muted">
+      {/* ========================= Testimonials ========================= */}
+      <section className="py-16 md:py-24 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-              What Our Visitors Say
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Real experiences from people who have visited Manvaasam
-            </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 text-foreground">What Our Visitors Say</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Real experiences from people who have visited Manvaasam</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[{
-            name: "Priya Sharma",
-            role: "Nature Enthusiast",
-            content: "The organic farm tour was incredible! The freshness of the fruits and the peaceful environment made it a perfect weekend getaway.",
-            rating: 5
-          }, {
-            name: "Rajesh Kumar",
-            role: "Agricultural Student",
-            content: "The institute's training programs are top-notch. I learned so much about sustainable farming practices. Highly recommended!",
-            rating: 5
-          }, {
-            name: "Anita Patel",
-            role: "Family Visitor",
-            content: "Our family had an amazing time at the resort. The pool, the gardens, and the organic food - everything was perfect!",
-            rating: 5
-          }].map((testimonial, index) => <Card key={index} className="hover:shadow-primary transition-all duration-300 hover:scale-105 animate-fade-in" style={{
-            animationDelay: `${index * 100}ms`
-          }}>
+            {[
+              {
+                name: "Priya Sharma",
+                role: "Nature Enthusiast",
+                content:
+                  "The organic farm tour was incredible! The freshness of the fruits and the peaceful environment made it a perfect weekend getaway.",
+                rating: 5,
+              },
+              {
+                name: "Rajesh Kumar",
+                role: "Agricultural Student",
+                content:
+                  "The institute's training programs are top-notch. I learned so much about sustainable farming practices. Highly recommended!",
+                rating: 5,
+              },
+              {
+                name: "Anita Patel",
+                role: "Family Visitor",
+                content:
+                  "Our family had an amazing time at the resort. The pool, the gardens, and the organic food - everything was perfect!",
+                rating: 5,
+              },
+            ].map((t, i) => (
+              <Card key={i} className="hover:shadow-primary transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6">
                   <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="h-5 w-5 fill-primary text-primary" />)}
+                    {[...Array(t.rating)].map((_, j) => (
+                      <Star key={j} className="h-5 w-5 fill-primary text-primary" />
+                    ))}
                   </div>
-                  <p className="text-muted-foreground mb-6 italic">"{testimonial.content}"</p>
+                  <p className="text-muted-foreground mb-6 italic">"{t.content}"</p>
                   <div>
-                    <p className="font-semibold text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <p className="font-semibold text-foreground">{t.name}</p>
+                    <p className="text-sm text-muted-foreground">{t.role}</p>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-background">
+      {/* ========================= FAQ ========================= */}
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-              Common Questions
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Find answers to frequently asked questions about our services
-            </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 text-foreground">Common Questions</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Find answers to frequently asked questions about our services</p>
           </div>
 
           <div className="max-w-3xl mx-auto">
@@ -288,43 +406,43 @@ const Home = () => {
           </div>
 
           {/* Contact CTA */}
-          <div className="text-center mt-12 animate-fade-in">
+          <div className="text-center mt-12">
             <div className="bg-muted rounded-2xl p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold mb-4 text-foreground">Still Have Questions?</h3>
               <p className="text-muted-foreground mb-6">
                 Don't hesitate to reach out. Our friendly team is here to help you!
               </p>
               <Link to="/about">
-                <Button size="lg" className="px-8">
-                  Contact Us
-                </Button>
+                <Button size="lg" className="px-8">Contact Us</Button>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary text-white bg-green-400">
+      {/* ========================= CTA ========================= */}
+      <section className="py-16 md:py-20 text-white bg-gradient-to-r from-emerald-500 to-teal-500">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Experience Nature?
-          </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to Experience Nature?</h2>
+          <p className="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Book your visit today and immerse yourself in organic living
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/products">
-              <Button size="lg" className="text-lg px-10 shadow-lg hover:scale-105 transition-transform bg-white text-primary hover:bg-white/90">
+              <Button size="lg" className="text-lg px-10 shadow-lg bg-white text-primary hover:bg-white/90">
                 Explore Products
               </Button>
             </Link>
             <Link to="/services">
-              
+              <Button size="lg" variant="outline" className="text-lg px-10 border-white/80 text-white">
+                Book Resort Stay
+              </Button>
             </Link>
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Home;
