@@ -7,6 +7,7 @@ import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollRestoration from "./components/ScrollRestoration";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -25,6 +26,7 @@ const App = () => (
       <BrowserRouter>
         <Navbar />
         <ScrollToTop />
+        <ScrollRestoration />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

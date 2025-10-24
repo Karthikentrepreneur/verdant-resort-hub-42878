@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Leaf, TreeDeciduous, Users, Star, Play, GraduationCap, Laptop, Sprout } from "lucide-react";
+import { Leaf, TreeDeciduous, Users, Star, GraduationCap, Laptop, Sprout } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { useState } from "react";
 
 // Assets
 // fallback poster
@@ -15,14 +14,13 @@ import incubatorImage from "@/assets/incubator.png";
 import resortImage from "@/assets/resort.webp";
 import fruitImage from "@/assets/fruit.webp";
 const Home = () => {
-  const [isMuted, setIsMuted] = useState(true);
   return <div className="min-h-screen">
       {/* ========================= Hero (separate mobile & desktop video) ========================= */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Desktop video */}
-        <video className="hidden md:block absolute inset-0 w-full h-full object-cover" src="/webhero.mp4" autoPlay muted={isMuted} loop playsInline poster="/hero-video-bg.jpg" />
+        <video className="hidden md:block absolute inset-0 w-full h-full object-cover" src="/webhero.mp4" autoPlay muted loop playsInline poster="/hero-video-bg.jpg" />
         {/* Mobile video */}
-        <video className="md:hidden absolute inset-0 w-full h-full object-cover" src="/mobilehero.mp4" autoPlay muted={isMuted} loop playsInline poster="/hero-video-bg.jpg" />
+        <video className="md:hidden absolute inset-0 w-full h-full object-cover" src="/mobilehero.mp4" autoPlay muted loop playsInline poster="/hero-video-bg.jpg" />
 
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/20 to-transparent" />
@@ -34,24 +32,16 @@ const Home = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 drop-shadow-2xl">
               Seeds of Hope
             </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-2 font-light text-white/95">
+            <p className="text-base sm:text-lg md:text-xl mb-4 font-light text-white/95">
               Experience Sustainable Living at Our Organic Farm Resort
             </p>
             
-            {/* Sound toggle */}
-            <button onClick={() => setIsMuted(m => !m)} className="mt-3 inline-flex items-center gap-2 text-sm/none py-2 px-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/30">
-              <Play className="w-4 h-4" /> {isMuted ? "Sound Off" : "Sound On"}
-            </button>
+            <Link to="/products">
+              <Button size="lg" className="text-lg px-8 shadow-lg hover:scale-105 transition-transform bg-white text-foreground hover:bg-white/90">
+                Book Resort Stay
+              </Button>
+            </Link>
           </div>
-        </div>
-
-        {/* Bottom-left CTA in green gradient box */}
-        <div className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-20">
-          <Link to="/products">
-            <Button size="lg" className="text-lg px-10 shadow-lg hover:scale-105 transition-transform">
-              Book Resort Stay
-            </Button>
-          </Link>
         </div>
 
         {/* Scroll cue */}
