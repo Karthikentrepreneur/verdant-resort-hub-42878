@@ -11,34 +11,15 @@ import fruitsImage from "@/assets/fruits.jpg";
 import farmImage from "@/assets/organic-farm.jpg";
 import poolImage from "@/assets/swimming-pool.jpg";
 import instituteImage from "@/assets/institute.jpg";
-
 const Home = () => {
   const [isMuted, setIsMuted] = useState(true);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* ========================= Hero (separate mobile & desktop video) ========================= */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Desktop video */}
-        <video
-          className="hidden md:block absolute inset-0 w-full h-full object-cover"
-          src="/webhero.mp4"
-          autoPlay
-          muted={isMuted}
-          loop
-          playsInline
-          poster="/hero-video-bg.jpg"
-        />
+        <video className="hidden md:block absolute inset-0 w-full h-full object-cover" src="/webhero.mp4" autoPlay muted={isMuted} loop playsInline poster="/hero-video-bg.jpg" />
         {/* Mobile video */}
-        <video
-          className="md:hidden absolute inset-0 w-full h-full object-cover"
-          src="/mobilehero.mp4"
-          autoPlay
-          muted={isMuted}
-          loop
-          playsInline
-          poster="/hero-video-bg.jpg"
-        />
+        <video className="md:hidden absolute inset-0 w-full h-full object-cover" src="/mobilehero.mp4" autoPlay muted={isMuted} loop playsInline poster="/hero-video-bg.jpg" />
 
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/20 to-transparent" />
@@ -53,14 +34,9 @@ const Home = () => {
             <p className="text-base sm:text-lg md:text-xl mb-2 font-light text-white/95">
               Experience Sustainable Living at Our Organic Farm Resort
             </p>
-            <p className="text-sm sm:text-base text-white/90">
-              Fresh, Organic, and Delivered to Your Doorstep
-            </p>
+            
             {/* Sound toggle */}
-            <button
-              onClick={() => setIsMuted((m) => !m)}
-              className="mt-3 inline-flex items-center gap-2 text-sm/none py-2 px-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/30"
-            >
+            <button onClick={() => setIsMuted(m => !m)} className="mt-3 inline-flex items-center gap-2 text-sm/none py-2 px-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/30">
               <Play className="w-4 h-4" /> {isMuted ? "Sound Off" : "Sound On"}
             </button>
           </div>
@@ -68,15 +44,7 @@ const Home = () => {
 
         {/* Bottom-left CTA in green gradient box */}
         <div className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-20">
-          <div className="backdrop-blur-sm bg-gradient-to-r from-emerald-500/90 to-teal-500/90 text-white rounded-xl shadow-xl px-4 py-3 sm:px-6 sm:py-4 max-w-[92vw] sm:max-w-xs md:max-w-sm">
-            <h3 className="text-lg sm:text-xl font-semibold leading-tight">Plan your eco‑escape</h3>
-            <p className="text-white/90 text-sm mt-1 hidden sm:block">Farm trails, pool access & organic lunch included.</p>
-            <div className="mt-3">
-              <Link to="/products">
-                <Button size="sm" className="bg-white text-emerald-700 hover:bg-white/90 font-semibold">Explore Products</Button>
-              </Link>
-            </div>
-          </div>
+          
         </div>
 
         {/* Scroll cue */}
@@ -89,11 +57,7 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <div className="relative aspect-[4/3] md:aspect-[5/4] rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src={farmImage}
-              alt="Manvaasam Organic Farm"
-              className="w-full h-full object-cover"
-            />
+            <img src={farmImage} alt="Manvaasam Organic Farm" className="w-full h-full object-cover" />
             <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-white/90 text-foreground px-3 py-1 rounded-full text-sm shadow">
               <Sprout className="w-4 h-4" /> Organic • Sustainable • 4 Acres
             </div>
@@ -134,7 +98,7 @@ const Home = () => {
                 <Button className="px-6">Learn More</Button>
               </Link>
               <Link to="/products">
-                <Button variant="outline" className="px-6">Shop Now</Button>
+                
               </Link>
             </div>
           </div>
@@ -268,7 +232,7 @@ const Home = () => {
       <section className="py-16 md:py-20 bg-gradient-to-br from-emerald-600 to-teal-600 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
+            <div className="bg-transparent">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-full mb-4">
                 <TreeDeciduous className="h-8 w-8" />
               </div>
@@ -302,35 +266,25 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Priya Sharma",
-                role: "Nature Enthusiast",
-                content:
-                  "The organic farm tour was incredible! The freshness of the fruits and the peaceful environment made it a perfect weekend getaway.",
-                rating: 5,
-              },
-              {
-                name: "Rajesh Kumar",
-                role: "Agricultural Student",
-                content:
-                  "The institute's training programs are top-notch. I learned so much about sustainable farming practices. Highly recommended!",
-                rating: 5,
-              },
-              {
-                name: "Anita Patel",
-                role: "Family Visitor",
-                content:
-                  "Our family had an amazing time at the resort. The pool, the gardens, and the organic food - everything was perfect!",
-                rating: 5,
-              },
-            ].map((t, i) => (
-              <Card key={i} className="hover:shadow-primary transition-all duration-300 hover:scale-105">
+            {[{
+            name: "Priya Sharma",
+            role: "Nature Enthusiast",
+            content: "The organic farm tour was incredible! The freshness of the fruits and the peaceful environment made it a perfect weekend getaway.",
+            rating: 5
+          }, {
+            name: "Rajesh Kumar",
+            role: "Agricultural Student",
+            content: "The institute's training programs are top-notch. I learned so much about sustainable farming practices. Highly recommended!",
+            rating: 5
+          }, {
+            name: "Anita Patel",
+            role: "Family Visitor",
+            content: "Our family had an amazing time at the resort. The pool, the gardens, and the organic food - everything was perfect!",
+            rating: 5
+          }].map((t, i) => <Card key={i} className="hover:shadow-primary transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6">
                   <div className="flex gap-1 mb-4">
-                    {[...Array(t.rating)].map((_, j) => (
-                      <Star key={j} className="h-5 w-5 fill-primary text-primary" />
-                    ))}
+                    {[...Array(t.rating)].map((_, j) => <Star key={j} className="h-5 w-5 fill-primary text-primary" />)}
                   </div>
                   <p className="text-muted-foreground mb-6 italic">"{t.content}"</p>
                   <div>
@@ -338,8 +292,7 @@ const Home = () => {
                     <p className="text-sm text-muted-foreground">{t.role}</p>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -403,15 +356,7 @@ const Home = () => {
 
           {/* Contact CTA */}
           <div className="text-center mt-12">
-            <div className="bg-muted rounded-2xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Still Have Questions?</h3>
-              <p className="text-muted-foreground mb-6">
-                Don't hesitate to reach out. Our friendly team is here to help you!
-              </p>
-              <Link to="/about">
-                <Button size="lg" className="px-8">Contact Us</Button>
-              </Link>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -425,20 +370,14 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/products">
-              <Button size="lg" className="text-lg px-10 shadow-lg bg-white text-primary hover:bg-white/90">
-                Explore Products
-              </Button>
+              <Button size="lg" className="text-lg px-10 shadow-lg bg-white text-primary hover:bg-white/90">Book Resort Stay</Button>
             </Link>
             <Link to="/services">
-              <Button size="lg" variant="outline" className="text-lg px-10 border-white/80 text-white">
-                Book Resort Stay
-              </Button>
+              
             </Link>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
