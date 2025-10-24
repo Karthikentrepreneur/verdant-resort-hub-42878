@@ -6,7 +6,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useState } from "react";
 
 // Assets
-import heroPoster from "@/assets/hero-video-bg.jpg";
+// fallback poster
+import fruitsImage from "@/assets/fruits.jpg";
+import farmImage from "@/assets/organic-farm.jpg";
+import poolImage from "@/assets/swimming-pool.jpg";
+import instituteImage from "@/assets/institute.jpg";
 
 const Home = () => {
   const [isMuted, setIsMuted] = useState(true);
@@ -14,33 +18,33 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* ========================= Hero (separate mobile & desktop video) ========================= */}
-      <section className="relative h-[90svh] md:h-screen flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Desktop video */}
         <video
           className="hidden md:block absolute inset-0 w-full h-full object-cover"
-          src="/mobilehero.mp4"
-          autoPlay
-          muted={isMuted}
-          loop
-          playsInline
-          poster={heroPoster}
-        />
-        {/* Mobile video */}
-        <video
-          className="md:hidden absolute inset-0 w-full h-full object-cover"
           src="/webhero.mp4"
           autoPlay
           muted={isMuted}
           loop
           playsInline
-          poster={heroPoster}
+          poster="/hero-video-bg.jpg"
+        />
+        {/* Mobile video */}
+        <video
+          className="md:hidden absolute inset-0 w-full h-full object-cover"
+          src="/mobilehero.mp4"
+          autoPlay
+          muted={isMuted}
+          loop
+          playsInline
+          poster="/hero-video-bg.jpg"
         />
 
         {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/20 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-        {/* Content */}
+        {/* Headline content (center) */}
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold mb-4 md:mb-6 drop-shadow-2xl">
@@ -49,34 +53,30 @@ const Home = () => {
             <p className="text-xl sm:text-2xl md:text-3xl mb-3 md:mb-4 max-w-3xl mx-auto font-light text-white/95">
               Experience Sustainable Living at Our Organic Farm Resort
             </p>
-            <p className="text-base sm:text-lg md:text-xl mb-8 md:mb-10 max-w-2xl mx-auto text-white/90">
+            <p className="text-base sm:text-lg md:text-xl mb-0 max-w-2xl mx-auto text-white/90">
               Fresh, Organic, and Delivered to Your Doorstep
             </p>
 
-            <div className="flex flex-wrap gap-4 sm:gap-5 justify-center">
-              <Link to="/products">
-                <Button size="lg" className="rounded-full px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg shadow-2xl hover:shadow-lg transition-all">
-                  Explore Products
-                </Button>
-              </Link>
-              <Link to="/services">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg bg-white/10 hover:bg-white/20 text-white border-2 border-white backdrop-blur-sm shadow-2xl"
-                >
-                  Book Resort Stay
-                </Button>
-              </Link>
-            </div>
-
-            {/* Sound toggle (optional) */}
+            {/* Sound toggle */}
             <button
-              onClick={() => setIsMuted(m => !m)}
+              onClick={() => setIsMuted((m) => !m)}
               className="mt-6 inline-flex items-center gap-2 text-sm/none py-2 px-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/30"
             >
               <Play className="w-4 h-4" /> {isMuted ? "Sound Off" : "Sound On"}
             </button>
+          </div>
+        </div>
+
+        {/* Bottom-left CTA in green gradient box */}
+        <div className="absolute left-4 bottom-4 md:left-6 md:bottom-6 z-20">
+          <div className="backdrop-blur-sm bg-gradient-to-r from-emerald-500/90 to-teal-500/90 text-white rounded-xl shadow-xl px-4 py-3 sm:px-6 sm:py-4 max-w-[92vw] sm:max-w-xs md:max-w-sm">
+            <h3 className="text-lg sm:text-xl font-semibold leading-tight">Plan your eco‑escape</h3>
+            <p className="text-white/90 text-sm mt-1 hidden sm:block">Farm trails, pool access & organic lunch included.</p>
+            <div className="mt-3">
+              <Link to="/products">
+                <Button size="sm" className="bg-white text-emerald-700 hover:bg-white/90 font-semibold">Explore Products</Button>
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ const Home = () => {
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <div className="relative aspect-[4/3] md:aspect-[5/4] rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="/favicon.ico"
+              src={farmImage}
               alt="Manvaasam Organic Farm"
               className="w-full h-full object-cover"
             />
@@ -203,7 +203,7 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src="/favicon.ico" alt="Seasonal Fruit Basket" className="w-full h-full object-cover" />
+                  <img src={fruitsImage} alt="Seasonal Fruit Basket" className="w-full h-full object-cover" />
                   <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">New</span>
                 </div>
                 <div className="p-6">
@@ -223,7 +223,7 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src="/favicon.ico" alt="Organic Veggie Pack" className="w-full h-full object-cover" />
+                  <img src={farmImage} alt="Organic Veggie Pack" className="w-full h-full object-cover" />
                   <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Best Seller</span>
                 </div>
                 <div className="p-6">
@@ -243,7 +243,7 @@ const Home = () => {
             <Card className="overflow-hidden hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02]">
               <CardContent className="p-0">
                 <div className="relative h-56 overflow-hidden">
-                  <img src="/favicon.ico"alt="Resort Day Pass" className="w-full h-full object-cover" />
+                  <img src={poolImage} alt="Resort Day Pass" className="w-full h-full object-cover" />
                   <span className="absolute top-3 left-3 bg-white/90 text-foreground text-xs px-2 py-1 rounded-full shadow">Limited</span>
                 </div>
                 <div className="p-6">
