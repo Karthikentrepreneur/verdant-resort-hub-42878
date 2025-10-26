@@ -170,7 +170,7 @@ const Home = () => {
                   <div className="mt-4 flex items-center justify-between">
                     <span className="font-bold">₹1,299</span>
                     <Link to="/products">
-                      <Button size="sm">Buy Now</Button>
+                      <Button size="sm">View</Button>
                     </Link>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ const Home = () => {
                       <span className="text-sm text-muted-foreground line-through">₹999</span>
                     </div>
                     <Link to="/products">
-                      <Button size="sm">Buy Now</Button>
+                      <Button size="sm">View</Button>
                     </Link>
                   </div>
                 </div>
@@ -213,7 +213,7 @@ const Home = () => {
                   <div className="mt-4 flex items-center justify-between">
                     <span className="font-bold">₹2,999</span>
                     <Link to="/products">
-                      <Button size="sm">Buy Now</Button>
+                      <Button size="sm">View</Button>
                     </Link>
                   </div>
                 </div>
