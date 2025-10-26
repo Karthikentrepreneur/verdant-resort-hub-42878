@@ -24,7 +24,7 @@ const Services = () => {
       icon: Laptop,
       title: "Manvaasam Tech",
       description: "Web & Mobile Development • Digital Marketing • Posters & Video",
-      image: "/developement.jpg‎‎",
+      image: "/developemen.jpg‎‎",
       link: "https://www.youtube.com/@manvaasamteam"
     }
   ];
