@@ -9,7 +9,7 @@ const Services = () => {
       title: "Manvaasam Agri",
       description:
         "Work from Farm • Resort • Gardening • Organic Fruits & Vegetables • Swimming Pool",
-      image: "/institute.jpg", // ✅ in public/
+      image: "/assets/resort.webp", // ✅ in public/
       link: "https://www.youtube.com/@manvaasamteam",
     },
     {
