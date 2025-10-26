@@ -9,6 +9,7 @@ export default defineConfig(async ({ mode }) => {
   // Load lovable-tagger only in dev, and only if available
   if (mode === "development") {
     try {
+      // @ts-ignore - lovable-tagger is an optional dev dependency
       const mod = await import("lovable-tagger");
       const componentTagger = (mod as any)?.componentTagger ?? (mod as any)?.default;
       if (typeof componentTagger === "function") {
