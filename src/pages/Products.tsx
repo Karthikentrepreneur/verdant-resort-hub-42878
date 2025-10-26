@@ -63,7 +63,13 @@ const Products = () => {
     }
 
     const product = products.find(p => p.name === selectedProduct);
-    const message = `Hi, I would like to order:\n\nProduct: ${selectedProduct}\nQuantity: ${quantity}\nPrice: ${product?.price}\n\nPlease confirm my order.`;
+    
+    // Extract numeric price and calculate total
+    const priceString = product?.price.replace(/[₹,]/g, '') || '0';
+    const unitPrice = parseFloat(priceString);
+    const totalPrice = unitPrice * parseInt(quantity);
+    
+    const message = `Hi, I would like to order:\n\nProduct: ${selectedProduct}\nQuantity: ${quantity}\nUnit Price: ${product?.price}\nTotal Price: ₹${totalPrice.toFixed(2)}\n\nPlease confirm my order.`;
     const whatsappUrl = `https://wa.me/919344374664?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
@@ -147,7 +153,7 @@ const Products = () => {
                     onClick={() => handlePurchase(product.name)}
                   >
                     <ShoppingCart className="mr-2 h-4 w-4" />
-                    Purchase Now
+                    Buy Now
                   </Button>
                 </CardFooter>
               </Card>
