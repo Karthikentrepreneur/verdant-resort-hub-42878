@@ -60,7 +60,7 @@ const Products = () => {
     const unitPrice = parseFloat(priceString);
     const totalPrice = unitPrice * parseInt(quantity);
     const message = `Hi, I would like to order:\n\nProduct: ${selectedProduct}\nQuantity: ${quantity}\nUnit Price: ${product?.price}\nTotal Price: ₹${totalPrice.toFixed(2)}\n\nPlease confirm my order.`;
-    const whatsappUrl = `https://wa.me/919344374664?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/916380091001?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     setDialogOpen(false);
     toast.success("Redirecting to WhatsApp...", {
