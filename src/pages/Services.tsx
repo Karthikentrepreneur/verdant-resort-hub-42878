@@ -10,21 +10,21 @@ const Services = () => {
       icon: Building2,
       title: "Manvaasam Agri",
       description: "Work from Farm • Resort • Gardening • Organic Fruits & Vegetables • Swimming Pool",
-      image: "/institute.jpg",
+      image: instituteImage,
       link: "https://www.youtube.com/@manvaasamteam"
     },
     {
       icon: GraduationCap,
       title: "Manvaasam Institute",
       description: "Technical Trainings • Placements • LMS • Online Courses",
-      image: instituteImage,
+      image: "/institute.jpg",
       link: "https://www.manvaasam.org.in/"
     },
     {
       icon: Laptop,
       title: "Manvaasam Tech",
       description: "Web & Mobile Development • Digital Marketing • Posters & Video",
-      image: "/developement.jpg‎",
+      image: "/developement.jpg‎‎",
       link: "https://www.youtube.com/@manvaasamteam"
     }
   ];
