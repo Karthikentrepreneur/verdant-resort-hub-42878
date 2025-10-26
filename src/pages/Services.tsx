@@ -1,32 +1,32 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Building2, GraduationCap, Laptop, ExternalLink } from "lucide-react";
-import resortImage from "@/assets/resort.webp";
-import instituteImage from "@/assets/institute.jpg";
 
 const Services = () => {
   const services = [
     {
       icon: Building2,
       title: "Manvaasam Agri",
-      description: "Work from Farm • Resort • Gardening • Organic Fruits & Vegetables • Swimming Pool",
-      image: instituteImage,
-      link: "https://www.youtube.com/@manvaasamteam"
+      description:
+        "Work from Farm • Resort • Gardening • Organic Fruits & Vegetables • Swimming Pool",
+      image: "/assets/resort.webp", // ✅ in public/
+      link: "https://www.youtube.com/@manvaasamteam",
     },
     {
       icon: GraduationCap,
       title: "Manvaasam Institute",
       description: "Technical Trainings • Placements • LMS • Online Courses",
-      image: "/institute.jpg",
-      link: "https://www.manvaasam.org.in/"
+      image: "/institute.jpg", // ✅ in public/
+      link: "https://www.manvaasam.org.in/",
     },
     {
       icon: Laptop,
       title: "Manvaasam Tech",
-      description: "Web & Mobile Development • Digital Marketing • Posters & Video",
-      image: "/develope.jpg‎‎",
-      link: "https://www.youtube.com/@manvaasamteam"
-    }
+      description:
+        "Web & Mobile Development • Digital Marketing • Posters & Video",
+      image: "/develope.jpg", // ✅ make sure filename = public/develope.jpg (no hidden chars)
+      link: "https://www.youtube.com/@manvaasamteam",
+    },
   ];
 
   return (
@@ -35,9 +35,7 @@ const Services = () => {
       <section className="relative py-20 bg-accent text-accent-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Our Services
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
             <p className="text-xl opacity-90">
               Comprehensive solutions for agriculture, education, and technology
             </p>
@@ -51,7 +49,7 @@ const Services = () => {
           <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {services.map((service, index) => (
               <Card
-                key={index}
+                key={service.title}
                 className="overflow-hidden hover:shadow-primary transition-all duration-300 hover:scale-105 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
@@ -60,6 +58,7 @@ const Services = () => {
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    loading="lazy"
                   />
                 </div>
                 <CardHeader>
@@ -72,15 +71,14 @@ const Services = () => {
                   <p className="text-muted-foreground whitespace-pre-line mb-4">
                     {service.description}
                   </p>
-                  <a 
-                    href={service.link} 
-                    target="_blank" 
+                  <a
+                    href={service.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="block"
                   >
                     <Button variant="default" className="w-full gap-2">
-                      Explore
-                      <ExternalLink className="h-4 w-4" />
+                      Explore <ExternalLink className="h-4 w-4" />
                     </Button>
                   </a>
                 </CardContent>
