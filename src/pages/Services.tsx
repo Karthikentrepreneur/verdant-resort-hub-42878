@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building2, GraduationCap, Laptop } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Building2, GraduationCap, Laptop, ExternalLink } from "lucide-react";
 import resortImage from "@/assets/resort.webp";
 import instituteImage from "@/assets/institute.jpg";
 
@@ -9,19 +10,22 @@ const Services = () => {
       icon: Building2,
       title: "Manvaasam Agri",
       description: "Work from Farm • Resort • Gardening • Organic Fruits & Vegetables • Swimming Pool",
-      image: resortImage
+      image: resortImage,
+      link: "https://www.youtube.com/@manvaasamteam"
     },
     {
       icon: GraduationCap,
       title: "Manvaasam Institute",
       description: "Technical Trainings • Placements • LMS • Online Courses",
-      image: instituteImage
+      image: instituteImage,
+      link: "https://www.manvaasam.org.in/"
     },
     {
       icon: Laptop,
       title: "Manvaasam Tech",
       description: "Web & Mobile Development • Digital Marketing • Posters & Video",
-      image: instituteImage
+      image: instituteImage,
+      link: "https://www.youtube.com/@manvaasamteam"
     }
   ];
 
@@ -65,9 +69,20 @@ const Services = () => {
                   <CardTitle className="text-2xl">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground whitespace-pre-line">
+                  <p className="text-muted-foreground whitespace-pre-line mb-4">
                     {service.description}
                   </p>
+                  <a 
+                    href={service.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Button variant="default" className="w-full gap-2">
+                      Explore
+                      <ExternalLink className="h-4 w-4" />
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
             ))}

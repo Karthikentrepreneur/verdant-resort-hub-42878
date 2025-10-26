@@ -47,6 +47,7 @@ const About = () => {
           }}>
               <h2 className="text-4xl font-bold mb-6 text-foreground">Our Story</h2>
               <p className="text-lg text-muted-foreground mb-4">
+                Founded on <span className="font-semibold text-foreground">14th February 2020</span>, 
                 Manvaasam was born from a vision to create a sustainable ecosystem where
                 nature and modern living coexist harmoniously. Our 4-acre organic farm
                 is a testament to our commitment to environmental stewardship.

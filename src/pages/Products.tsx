@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { ShoppingCart, Clock, Users, CheckCircle2, Gift } from "lucide-react";
 import { toast } from "sonner";
 import incubatorImage from "@/assets/incubator.png";
@@ -12,7 +14,9 @@ import fruit2Image from "@/assets/fruit2.webp";
 import fruit3Image from "@/assets/fruit3.webp";
 
 const Products = () => {
-  const navigate = useNavigate();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<string>("");
+  const [quantity, setQuantity] = useState("");
   const [notifyEmail, setNotifyEmail] = useState("");
 
   const products = [
@@ -47,10 +51,27 @@ const Products = () => {
   ];
 
   const handlePurchase = (productName: string) => {
-    toast.info("Please login to continue", {
-      description: "You need to be logged in to purchase products",
+    setSelectedProduct(productName);
+    setQuantity("");
+    setDialogOpen(true);
+  };
+
+  const handleConfirmPurchase = () => {
+    if (!quantity || parseInt(quantity) <= 0) {
+      toast.error("Please enter a valid quantity");
+      return;
+    }
+
+    const product = products.find(p => p.name === selectedProduct);
+    const message = `Hi, I would like to order:\n\nProduct: ${selectedProduct}\nQuantity: ${quantity}\nPrice: ${product?.price}\n\nPlease confirm my order.`;
+    const whatsappUrl = `https://wa.me/919344374664?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
+    setDialogOpen(false);
+    
+    toast.success("Redirecting to WhatsApp...", {
+      description: "Please complete your order via WhatsApp"
     });
-    navigate("/login");
   };
 
   const handleNotify = (e: React.FormEvent) => {
@@ -168,6 +189,43 @@ const Products = () => {
           </Card>
         </div>
       </section>
+
+      {/* Purchase Dialog */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Complete Your Order</DialogTitle>
+            <DialogDescription>
+              {selectedProduct === "Manvaasam Incubator" 
+                ? "How many incubators would you like to order?"
+                : "How many people will be staying at the resort?"}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid gap-2">
+              <Label htmlFor="quantity">
+                {selectedProduct === "Manvaasam Incubator" ? "Number of Incubators" : "Number of People"}
+              </Label>
+              <Input
+                id="quantity"
+                type="number"
+                min="1"
+                placeholder="Enter quantity"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handleConfirmPurchase}>
+              Send Order via WhatsApp
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

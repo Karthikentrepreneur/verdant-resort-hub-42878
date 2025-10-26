@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 import { Button } from "@/components/ui/button";
 
@@ -38,11 +38,16 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/login">
-              <Button variant="default" size="sm">
-                Login
+            <a 
+              href="https://wa.me/919344374664" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Button variant="default" size="sm" className="gap-2">
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
               </Button>
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -70,11 +75,17 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/login" onClick={() => setIsOpen(false)}>
-              <Button variant="default" size="sm" className="mt-4 w-full">
-                Login
+            <a 
+              href="https://wa.me/919344374664" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+            >
+              <Button variant="default" size="sm" className="mt-4 w-full gap-2">
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
               </Button>
-            </Link>
+            </a>
           </div>
         )}
       </div>
