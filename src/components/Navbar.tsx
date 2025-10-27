@@ -39,7 +39,7 @@ const Navbar = () => {
               </Link>
             ))}
             <a 
-              href="https://wa.me/919344374664" 
+              href="https://wa.me/916380091001" 
               target="_blank" 
               rel="noopener noreferrer"
             >
